@@ -8,7 +8,18 @@ class MyHomePage extends StatefulWidget {
 }
  
 class _MyHomePageState extends State<MyHomePage> {
+  final List<Map<String,String>> _tarefas = [];
   
+  void _adicionarTarefas(String url, String descricao, BuildContext context){
+    setState(() {
+      _tarefas.add({
+          'url': url,
+          'descricao': descricao
+      });
+    });
+  }
+
+
   void _showForm(BuildContext context) {
     final TextEditingController imageController = TextEditingController();
     final TextEditingController descricaoController = TextEditingController();
@@ -113,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Tarefas(
             "https://seculoxximinas.com.br/fgv/wp-content/uploads/2018/12/Webp.net-compress-image-20.jpg",
-          ),
+                      ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
