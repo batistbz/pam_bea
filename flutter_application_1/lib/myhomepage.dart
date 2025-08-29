@@ -103,7 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.amber,
+                            color: Colors.white,
+                            backgroundColor: Colors.green
                           ),
                         ),
                       ),
@@ -111,15 +112,13 @@ class _MyHomePageState extends State<MyHomePage> {
                         onPressed: () {
                           //ação do botão
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black38,
-                        ),
                         child: Text(
                           'Cancelar',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.amber,
+                            color: Colors.white,
+                            backgroundColor: Colors.red
                           ),
                         ),
                       ),
@@ -204,7 +203,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.amber,
+                            backgroundColor: Colors.amber,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -212,10 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text('Cancelar'),
                         onPressed: () {
                           //ação do botão
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black38,
-                        ),
+                        },  
                       ),
                     ],
                   ),
@@ -227,13 +224,14 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
+
  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefas"),
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.pink,
       ),
       body: ListView.builder(
         itemCount: _tarefas.length,
@@ -282,7 +280,7 @@ class Tarefas extends StatelessWidget {
                   child: Container(
                     width: 100,
                     height: 100,
-                    color: Colors.blue,
+                    color: Colors.pink,
                     child: Image.network(imagem_url),
                   ),
                 ),
