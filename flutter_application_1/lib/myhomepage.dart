@@ -72,7 +72,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _adicionarTarefas(
+                        imageController.text,
+                        descricaoController.text,
+                        context,
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Cadastrada com sucesso!'
+                            ),
+                              duration: Duration( seconds: 3),
+                            ),
+                        );
+                      Navigator.of(context).pop();
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.lightGreen),
                     child: Text('Cadastrar',
