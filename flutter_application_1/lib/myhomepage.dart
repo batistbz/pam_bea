@@ -17,6 +17,20 @@ class _MyHomePageState extends State<MyHomePage> {
       _tarefas.add({'url': url, 'descricao': descricao});
     });
   }
+
+  // Método Editar tarefas
+    void _editarTarefas (
+      int index,
+      String url,
+      String descricao
+    ){
+      setState(() {
+        _tarefas[index] = {
+          'url':url,
+          'descricao':descricao
+        };
+      });
+    }
  
   //Criando um modal
   //metodo void modal cadastrar
@@ -95,16 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                           Navigator.of(context).pop();
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black38,
-                        ),
                         child: Text(
                           'Cadastar',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            backgroundColor: Colors.green
+                            color: Colors.green,  
                           ),
                         ),
                       ),
@@ -117,8 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            backgroundColor: Colors.red
+                            color: Colors.red,
                           ),
                         ),
                       ),
@@ -136,10 +145,13 @@ class _MyHomePageState extends State<MyHomePage> {
   //Criando Modal de Editar
   //Criando um modal
   //metodo void Editar
-  void _showFormEdit(BuildContext context) {
+  void _showFormEdit(BuildContext context, int index) {
     //criando as variaveis de controller
-    final TextEditingController imageController = TextEditingController();
-    final TextEditingController descricaoController = TextEditingController();
+    final TextEditingController imageController = 
+    TextEditingController(text: _tarefas[index]['url']);
+    final TextEditingController descricaoController =
+    TextEditingController(text: _tarefas[index]['descricao'],
+    );
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -197,19 +209,31 @@ class _MyHomePageState extends State<MyHomePage> {
                       ElevatedButton(
                         onPressed: () {
                           //ação do botão salvar
+                          _editarTarefas(
+                            index,
+                            imageController.text,
+                            descricaoController.text
+                             );
+                             Navigator.of(context).pop();
                         },
                         child: Text(
                           'Editar',
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            backgroundColor: Colors.amber,
-                            color: Colors.white,
+                            color: Colors.amber,
                           ),
                         ),
                       ),
                       ElevatedButton(
-                        child: Text('Cancelar'),
+                        child: Text(
+                          'Cancelar',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.red
+                          ),
+                          ),
                         onPressed: () {
                           //ação do botão
                         },  
@@ -239,7 +263,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return Tarefas(
             _tarefas[index]['url']!,
             _tarefas[index]['descricao']!,
-            () => _showFormEdit(context),
+            () => _showFormEdit(context, index),
           );
         },
       ),
