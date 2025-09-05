@@ -354,7 +354,10 @@ class Tarefas extends StatelessWidget {
                     child: Icon(Icons.edit),
                   ),
                 ),
-                ElevatedButton(onPressed: onDelete, child: Icon(Icons.delete)),
+                ElevatedButton(
+                  onPressed: onDelete, 
+                  child: Icon(Icons.delete)
+                  ),
               ],
             ),
           ),
