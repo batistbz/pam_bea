@@ -17,26 +17,48 @@ class _MyHomePageState extends State<MyHomePage> {
       _tarefas.add({'url': url, 'descricao': descricao});
     });
   }
-
-  // Método Editar tarefas
-    void _editarTarefas (
-      int index,
-      String url,
-      String descricao
-    ){
-      setState(() {
-        _tarefas[index] = {
-          'url':url,
-          'descricao':descricao
-        };
-      });
-    }
-    // metodo delete
-    void _deletarTarefas (int index) {
-      setState(() {
-        _tarefas.removeAt(index);
-      });
-    }
+ 
+  //metodo editar Tarefas
+  void _editarTarefas(int index, String url, String descricao) {
+    setState(() {
+      _tarefas[index] = {'url': url, 'descricao': descricao};
+    });
+  }
+ 
+  //METODO DELETE
+  void _deletarTarefas(int index) {
+    setState(() {
+      _tarefas.removeAt(index);
+    });
+  }
+  //MODAL PARA CONFIRMAR
+ 
+  void _confirmarExclusao(BuildContext context, int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Confirmar Exclusão"),
+          content: Text("Tem certeza que deseja excluir?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text("Cancelar"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _deletarTarefas(index);
+                Navigator.of(context).pop();
+              },
+              child: Text("Excluir"),
+            ),
+          ],
+        );
+      },
+    );
+  }
  
   //Criando um modal
   //metodo void modal cadastrar
@@ -120,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green,  
+                            color: Colors.green
                           ),
                         ),
                       ),
@@ -133,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
-                            color: Colors.red,
+                            color: Colors.red
                           ),
                         ),
                       ),
@@ -153,10 +175,11 @@ class _MyHomePageState extends State<MyHomePage> {
   //metodo void Editar
   void _showFormEdit(BuildContext context, int index) {
     //criando as variaveis de controller
-    final TextEditingController imageController = 
-    TextEditingController(text: _tarefas[index]['url']);
-    final TextEditingController descricaoController =
-    TextEditingController(text: _tarefas[index]['descricao'],
+    final TextEditingController imageController = TextEditingController(
+      text: _tarefas[index]['url'],
+    );
+    final TextEditingController descricaoController = TextEditingController(
+      text: _tarefas[index]['descricao'],
     );
     showDialog(
       context: context,
@@ -218,9 +241,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           _editarTarefas(
                             index,
                             imageController.text,
-                            descricaoController.text
-                             );
-                             Navigator.of(context).pop();
+                            descricaoController.text,
+                          );
+                          Navigator.of(context).pop();
                         },
                         child: Text(
                           'Editar',
@@ -235,14 +258,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(
                           'Cancelar',
                           style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red
                           ),
                           ),
                         onPressed: () {
                           //ação do botão
-                        },  
+                        },
                       ),
                     ],
                   ),
@@ -254,7 +277,6 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
-
  
   @override
   Widget build(BuildContext context) {
@@ -270,6 +292,7 @@ class _MyHomePageState extends State<MyHomePage> {
             _tarefas[index]['url']!,
             _tarefas[index]['descricao']!,
             () => _showFormEdit(context, index),
+            () => _confirmarExclusao(context, index),
           );
         },
       ),
@@ -289,8 +312,15 @@ class Tarefas extends StatelessWidget {
   final String imagem_url;
   final String descricao;
   final VoidCallback onEdit;
+  final VoidCallback onDelete;
  
-  const Tarefas(this.imagem_url, this.descricao, this.onEdit, {super.key});
+  const Tarefas(
+    this.imagem_url,
+    this.descricao,
+    this.onEdit,
+    this.onDelete, {
+    super.key,
+  });
  
   @override
   Widget build(BuildContext context) {
@@ -324,13 +354,7 @@ class Tarefas extends StatelessWidget {
                     child: Icon(Icons.edit),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ElevatedButton(
-                    onPressed: onEdit,
-                    child: Icon(Icons.delete),
-                  ),
-                ),
+                ElevatedButton(onPressed: onDelete, child: Icon(Icons.delete)),
               ],
             ),
           ),
