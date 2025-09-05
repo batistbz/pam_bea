@@ -31,6 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
         };
       });
     }
+    // metodo delete
+    void _deletarTarefas (int index) {
+      setState(() {
+        _tarefas.removeAt(index);
+      });
+    }
  
   //Criando um modal
   //metodo void modal cadastrar
@@ -316,6 +322,13 @@ class Tarefas extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: onEdit,
                     child: Icon(Icons.edit),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: onEdit,
+                    child: Icon(Icons.delete),
                   ),
                 ),
               ],
