@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pet_form.dart';
+import 'ptform.dart';
 
 void main() {
   runApp(PetShopApp());
@@ -52,7 +52,8 @@ class _PetShopAppState extends State<PetShopApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pet Shop',
+      debugShowCheckedModeBanner: false,
+      title: 'Casa MeluSpeed',
       theme: ThemeData(primarySwatch: Colors.teal),
       home: HomeScreen(
         pets: pets,
