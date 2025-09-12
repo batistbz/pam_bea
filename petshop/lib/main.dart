@@ -54,7 +54,7 @@ class _PetShopAppState extends State<PetShopApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Casa MeluSpeed',
-      theme: ThemeData(primarySwatch: Colors.teal),
+      theme: ThemeData(primarySwatch: Colors.pink),
       home: HomeScreen(
         pets: pets,
         onAddPet: _addPet,
@@ -84,7 +84,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pet Shop'),
+        title: Text('Casa MeluSpeed'),
       ),
       body: Center(
         child: Column(
