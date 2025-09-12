@@ -87,7 +87,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
               TextFormField(
                 controller: _nomeController,
                 decoration: InputDecoration(
-                  labelText: 'Nome do pet 🐕',
+                  labelText: 'Nome do pet',
                 ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
@@ -99,7 +99,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
               TextFormField(
                 controller: _tipoController,
                 decoration: InputDecoration(
-                  labelText: 'Tipo (cachorro, gato, pássaro, etc.) 🐾',
+                  labelText: 'Tipo (cachorro, gato, pássaro, etc.)',
                 ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
@@ -111,7 +111,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
               TextFormField(
                 controller: _racaController,
                 decoration: InputDecoration(
-                  labelText: 'Raça 🐩',
+                  labelText: 'Raça',
                 ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
@@ -123,7 +123,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
               TextFormField(
                 controller: _idadeController,
                 decoration: InputDecoration(
-                  labelText: 'Idade (em anos) ⏳',
+                  labelText: 'Idade',
                 ),
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -140,7 +140,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
               TextFormField(
                 controller: _fotoUrlController,
                 decoration: InputDecoration(
-                  labelText: 'Foto (URL de imagem) 📷',
+                  labelText: 'Foto (URL de imagem)',
                 ),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
