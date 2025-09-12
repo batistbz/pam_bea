@@ -54,7 +54,9 @@ class _PetShopAppState extends State<PetShopApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Casa MeluSpeed',
-      theme: ThemeData(primarySwatch: Colors.pink),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
+      ),
       home: HomeScreen(
         pets: pets,
         onAddPet: _addPet,
