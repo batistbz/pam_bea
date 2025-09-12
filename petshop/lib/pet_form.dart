@@ -4,10 +4,10 @@ import 'main.dart';
 class PetFormScreen extends StatefulWidget {
   final Pet? pet;
 
-  PetFormScreen({this.pet});
+  const PetFormScreen({super.key, this.pet});
 
   @override
-  _PetFormScreenState createState() => _PetFormScreenState();
+  State<PetFormScreen> createState() => _PetFormScreenState();
 }
 
 class _PetFormScreenState extends State<PetFormScreen> {
@@ -147,7 +147,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                     return 'Informe a URL da foto';
                   }
                   final url = value.trim();
-                  if (!Uri.tryParse(url)!.hasAbsolutePath ?? true) {
+                  if (!Uri.tryParse(url)!.hasAbsolutePath) {
                     return 'Informe uma URL válida';
                   }
                   return null;
@@ -155,8 +155,8 @@ class _PetFormScreenState extends State<PetFormScreen> {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                child: Text('Salvar'),
                 onPressed: _savePet,
+                child: Text('Salvar'),
               ),
             ],
           ),

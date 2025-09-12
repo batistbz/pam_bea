@@ -22,8 +22,10 @@ class Pet {
 }
 
 class PetShopApp extends StatefulWidget {
+  const PetShopApp({super.key});
+
   @override
-  _PetShopAppState createState() => _PetShopAppState();
+  State<PetShopApp> createState() => _PetShopAppState();
 }
 
 class _PetShopAppState extends State<PetShopApp> {
@@ -62,13 +64,15 @@ class _PetShopAppState extends State<PetShopApp> {
   }
 }
 
+
 class HomeScreen extends StatelessWidget {
   final List<Pet> pets;
   final Function(Pet) onAddPet;
   final Function(int, Pet) onUpdatePet;
   final Function(int) onRemovePet;
 
-  HomeScreen({
+  const HomeScreen({
+    super.key,
     required this.pets,
     required this.onAddPet,
     required this.onUpdatePet,
@@ -124,12 +128,14 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+
 class PetListScreen extends StatelessWidget {
   final List<Pet> pets;
   final Function(int, Pet) onUpdatePet;
   final Function(int) onRemovePet;
 
-  PetListScreen({
+  const PetListScreen({
+    super.key,
     required this.pets,
     required this.onUpdatePet,
     required this.onRemovePet,
@@ -152,7 +158,7 @@ class PetListScreen extends StatelessWidget {
                   child: ListTile(
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(pet.fotoUrl),
-                      onBackgroundImageError: (_, __) {},
+                      onBackgroundImageError: (_, e) {},
                     ),
                     title: Text('${pet.nome} (${pet.tipo})'),
                     subtitle: Text('Raça: ${pet.raca} - Idade: ${pet.idade} anos'),
