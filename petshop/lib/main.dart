@@ -56,6 +56,10 @@ class _PetShopAppState extends State<PetShopApp> {
       title: 'Casa MeluSpeed',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.pinkAccent,    // Cor de fundo da AppBar
+          foregroundColor: Colors.white,   // Cor do título/texto da AppBar
+        ),
       ),
       home: HomeScreen(
         pets: pets,
@@ -95,6 +99,10 @@ class HomeScreen extends StatelessWidget {
             ElevatedButton.icon(
               icon: Icon(Icons.add),
               label: Text('Cadastrar Pet'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pinkAccent, // Cor de fundo do botão
+                foregroundColor: Colors.white, // Cor do texto e ícone
+              ),
               onPressed: () async {
                 final Pet? newPet = await Navigator.push(
                   context,
@@ -111,6 +119,10 @@ class HomeScreen extends StatelessWidget {
             ElevatedButton.icon(
               icon: Icon(Icons.list),
               label: Text('Consultar Pets'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.pinkAccent, // Cor de fundo do botão
+                foregroundColor: Colors.white, // Cor do texto e ícone
+              ),
               onPressed: () {
                 Navigator.push(
                   context,

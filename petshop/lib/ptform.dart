@@ -61,7 +61,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                   idade: int.parse(_idadeController.text.trim()),
                   fotoUrl: _fotoUrlController.text.trim(),
                 );
-                Navigator.pop(context); // fecha o diálogo
+                Navigator.pop(context); 
                 Navigator.pop(context, pet); // retorna o pet para a tela anterior
               },
             ),
@@ -155,6 +155,10 @@ class _PetFormScreenState extends State<PetFormScreen> {
               ),
               SizedBox(height: 20),
               ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink, // Cor de fundo do botão
+                  foregroundColor: Colors.white, // Cor do texto
+                ),
                 onPressed: _savePet,
                 child: Text('Salvar'),
               ),
