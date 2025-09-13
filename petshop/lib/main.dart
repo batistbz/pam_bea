@@ -93,8 +93,8 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           children: [
             Image.asset(
-              'assets/Logotipo.png', // Caminho da sua logo
-              height: 32,
+              'assets/Logotipo2.png', // Caminho da sua logo
+              height: 64, // Novo tamanho
             ),
             SizedBox(width: 8),
             Text('Casa MeluSpeed'),
@@ -190,7 +190,7 @@ class PetListScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: Icon(Icons.edit, color: Colors.blue),
+                          icon: Icon(Icons.edit, color: Colors.yellow),
                           onPressed: () async {
                             final Pet? editedPet = await Navigator.push(
                               context,

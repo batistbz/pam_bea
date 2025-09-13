@@ -1,25 +1,25 @@
-  name: petshop
-  description: "A new Flutter project."
-  publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-  version: 1.0.0+1
+name: petshop
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
 
-  environment:
-    sdk: ^3.8.1
+environment:
+  sdk: ^3.8.1
 
-  dependencies:
-    flutter:
-      sdk: flutter
-    cupertino_icons: ^1.0.8
-    flutter_lints: ^6.0.0
-
-  dev_dependencies:
-    flutter_test:
-      sdk: flutter
-
+dependencies:
   flutter:
-    uses-material-design: true
-    assets:
-      - assets/Logotipo.png
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_lints: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/Logotipo2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
