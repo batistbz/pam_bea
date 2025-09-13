@@ -161,8 +161,9 @@ class _PetFormScreenState extends State<PetFormScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink, // Cor de fundo do botão
-                  foregroundColor: Colors.white, // Cor do texto
+                  backgroundColor: Colors.white, // Cor de fundo do botão
+                  foregroundColor: Colors.pinkAccent, 
+                  side: BorderSide(color: Colors.pinkAccent) // Cor do texto
                 ),
                 onPressed: _savePet,
                 child: Text('Salvar'),
