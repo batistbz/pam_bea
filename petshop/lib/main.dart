@@ -90,7 +90,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Casa MeluSpeed'),
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/Logotipo.png', // Caminho da sua logo
+              height: 32,
+            ),
+            SizedBox(width: 8),
+            Text('Casa MeluSpeed'),
+          ],
+        ),
       ),
       body: Center(
         child: Column(

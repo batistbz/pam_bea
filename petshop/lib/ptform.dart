@@ -89,6 +89,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                 decoration: InputDecoration(
                   labelText: 'Nome do pet',
                 ),
+                style: TextStyle(color: Colors.black87),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Informe o nome do pet';
@@ -101,6 +102,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                 decoration: InputDecoration(
                   labelText: 'Tipo (cachorro, gato, pássaro, etc.)',
                 ),
+                style: TextStyle(color: Colors.black87),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Informe o tipo do pet';
@@ -113,6 +115,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                 decoration: InputDecoration(
                   labelText: 'Raça',
                 ),
+                style: TextStyle(color: Colors.black87),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Informe a raça do pet';
@@ -125,6 +128,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                 decoration: InputDecoration(
                   labelText: 'Idade',
                 ),
+                style: TextStyle(color: Colors.black87),
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
@@ -142,6 +146,7 @@ class _PetFormScreenState extends State<PetFormScreen> {
                 decoration: InputDecoration(
                   labelText: 'Foto (URL de imagem)',
                 ),
+                style: TextStyle(color: Colors.black87),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Informe a URL da foto';
