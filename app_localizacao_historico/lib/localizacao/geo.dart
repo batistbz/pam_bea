@@ -14,6 +14,10 @@ Future<Position> getLocalizacaoAtual () async{
     if(permissao == LocationPermission.denied){
       return Future.error("Permissão de localização negada");
     }
-    
+
   }
+
+  return
+  await
+  Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
 }
